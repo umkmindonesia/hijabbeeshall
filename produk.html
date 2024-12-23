@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMKM Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightgray;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; /* Tetap terlihat saat scroll */
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            background-color: #111;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        .hero {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .hero img {
+            width: 100%;
+            height: auto;
+        }
+
+        .footer {
+            background-color: #111;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px 20px;
+            gap: 20px;
+        }
+
+        .left-section, .right-section {
+            flex: 1;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #333; /* Border maroon */
+        }
+
+        .left-section img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .feedback-form {
+            max-width: 500px;
+            margin: 50px auto;
+            border: 1px solid #333; /* Border maroon */
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .feedback-form h2 {
+            text-align: center;
+            color: #111; /* Warna maroon untuk judul */
+        }
+
+        .form-field {
+            margin-bottom: 15px;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* Warna teks gelap */
+        }
+
+        .form-field input[type="text"],
+        .form-field input[type="email"],
+        .form-field textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 4px;
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            height: 100px; /* Tinggi area teks */
+        }
+
+        .submit-button {
+            background-color: #333; /* Warna maroon */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background-color: #333; /* Warna maroon lebih terang saat hover */
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: 50px auto;
+            border: 1px solid #333; /* Border maroon */
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .contact-form h2 {
+            text-align: center;
+            color: #111; /* Warna maroon untuk judul */
+        }
+
+        .form-field {
+            margin-bottom: 15px;
+        }
+
+        .form-field label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* Warna teks gelap */
+        }
+
+        .form-field input[type="text"],
+        .form-field input[type="email"],
+        .form-field textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-field textarea {
+            resize: vertical;
+            height: 100px; /* Tinggi area teks */
+        }
+
+        .submit-button {
+            background-color: #333; /* Warna maroon */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background-color: #111; /* Warna maroon lebih terang saat hover */
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #333; 
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            height: auto;
+        }
+
+        /* Detail Produk */
+        .product-detail {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .product-image img {
+            max-width: 400px;
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-description {
+            max-width: 500px;
+            text-align: left;
+        }
+
+        .product-description h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .product-description p {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="beranda.html">Beranda</a>
+            <a href="profil.html">Tentang Kami</a>
+            <a href="produk.html">Produk</a>
+            <a href="saran.html">Kontak Kami</a>
+        </nav>
+    </header>
+    
+    <!-- Section Profil Produk -->
+    <h2 style="text-align: center;">Produk</h2>
+    <div class="product-container">
+        <div class="product-grid">
+            <!-- Baris atas -->
+            <div class="product-card">
+                <img src="Gambar/katalog1.jpg">
+                <h3>Soklat</h3>
+                <p>Warna cokelat yang lembut dan hangat, hijab Soklat memberikan kesan natural yang cocok untuk segala suasana. Warna ini membawa nuansa tenang dan nyaman, ideal untuk tampilan yang elegan namun tetap kasual. Cocok untuk kulit hangat dan tampak serasi dipadukan dengan busana warna krem atau hijau tua.</p>
+            </div>
+
+            <div class="product-card">
+                <img src="Gambar/katalog2.jpg">
+                <h3>Klawu</h3>
+                <p>Warna abu-abu tua dari hijab Klawu menghadirkan sentuhan modern yang elegan. Kesan yang diciptakan warna ini adalah ketenangan yang stylish, cocok untuk tampilan profesional dan formal, namun tetap anggun untuk kegiatan sehari-hari. Warna abu-abu ini cocok untuk semua tone kulit, terutama jika dipasangkan dengan warna putih atau navy.</p>
+            </div>
+
+            <div class="product-card">
+                <img src="Gambar/katalog3.jpg">
+                <h3>Ireng</h3>
+                <p>Hijab Ireng hadir dengan warna hitam pekat yang klasik dan tak lekang oleh waktu. Warna ini memberikan kesan anggun dan berkelas, mudah dipadukan dengan berbagai gaya dan busana. Pilihan sempurna untuk tampilan chic dan minimalis. Hitam klasik yang elegan, sesuai untuk semua warna kulit dan sempurna dipadukan dengan busana berwarna cerah atau pastel.</p>
+            </div>
+        </div>
+
+        <div class="product-detail">
+            <div class="product-image">
+                <img src="Gambar/detail.jpg" alt="detail">
+            </div>
+            <div class="product-description">
+                <h1>Detail Produk:</h1>
+                <p>
+                    Hijab ini memiliki jahitan tepi yang rapi dan presisi, memberikan kesan elegan sekaligus memastikan ketahanan dalam pemakaian sehari-hari. Dengan bahan yang ringan namun tidak terlalu tipis, hijab ini nyaman digunakan tanpa khawatir transparan. Teksturnya lembut di kulit, menjadikannya pilihan sempurna untuk berbagai suasana, baik formal maupun kasual.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="divider"></div>
+
+    <!-- Section Form Pesan -->
+    <div class="contact-form">
+        <h2>Silahkan Isi Untuk Order</h2>
+        <form>
+            <div class="form-field">
+                <label for="name">Nama :</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-field">
+                <label for="warna">Warna :</label>
+                <input type="text" id="warna" name="warna" required>
+            </div>
+            <div class="form-field">
+                <label for="jumlah">Jumlah :</label>
+                <input type="text" id="jumlah" name="jumlah" required>
+            </div>
+            <button type="submit" class="submit-button">Kirim Pesan</button>
+        </form>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Section Kritik dan Saran -->
+    <div class="feedback-form">
+        <h2>Masukkan Saran</h2>
+        <form>
+            <div class="form-field">
+                <label for="email">Alamat Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-field">
+                <label for="feedback">Kritik dan Saran:</label>
+                <textarea id="feedback" name="feedback" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Kirim Feedback</button>
+        </form>
+    </div>
+</body>
+</html>
